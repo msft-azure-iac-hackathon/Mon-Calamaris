@@ -45,3 +45,6 @@ jobs:
           resourceGroupName: ${{ steps.resourceGroupLogging.outputs.resourceGroupName }}
           template: modules/logging/logging.bicep
           parameters: modules/logging/parameters/logging.parameters.all.json
+
+    outputs:
+      outLogAnalyticsWorkspaceId: ${{ steps.deployCentralLogging.outputs.outLogAnalyticsWorkspaceId }}
