@@ -47,7 +47,8 @@ jobs:
   policy-assignments:
     uses: ./.github/workflows/policyAssignments.yml
     needs: [deploy-management-groups, deploy-policy-definitions, deploy-logging]
-    with: 
+    with:
+      az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }} 
       Andor_MG_Resource_Id: ${{ needs.deploy-management-groups.outputs.Andor_MG_Resource_Id }}
       Platform_MG_Resource_Id: ${{ needs.deploy-management-groups.outputs.Platform_MG_Resource_Id }}
       Connectivity_MG_Resource_Id: ${{ needs.deploy-management-groups.outputs.Connectivity_MG_Resource_Id }}
@@ -59,8 +60,8 @@ jobs:
       Decommisioned_MG_Resource_Id: ${{ needs.deploy-management-groups.outputs.Decommisioned_MG_Resource_Id }}
       Sandbox_MG_Resource_Id: ${{ needs.deploy-management-groups.outputs.Sandbox_MG_Resource_Id }}
       LogAnalytics_Workspace_Id: ${{needs.deploy-logging.outputs.outLogAnalyticsWorkspaceId}}
-      #LogAnalytics_Customer_Id: ${{needs.deploy-logging.outputs.outLogAnalyticsCustomerId}}
-      #LogAnalytics_Solutions: ${{needs.deploy-logging.outputs.outLogAnalyticsSolutions}}
-      #Automation_Account_Id: ${{needs.deploy-logging.outputs.outAutomationAccount.id}}
+      LogAnalytics_Customer_Id: ${{needs.deploy-logging.outputs.outLogAnalyticsCustomerId}}
+      LogAnalytics_Solutions: ${{needs.deploy-logging.outputs.outLogAnalyticsSolutions}}
+      Automation_Account_Id: ${{needs.deploy-logging.outputs.outAutomationAccount.id}}
       Automation_Account_Name: ${{needs.deploy-logging.outputs.outAutomationAccount.name}}
     secrets: inherit
