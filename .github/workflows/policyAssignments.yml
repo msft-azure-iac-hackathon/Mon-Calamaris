@@ -72,8 +72,8 @@ jobs:
           managementgroupid: ${{ inputs.Top_Management_Group_Id }}
           template: modules/policy/assignments/alzDefaults/alzDefaultPolicyAssignments.bicep
           parameters: >
-            modules/policy/assignment/alzDefault/parameters/alzDefaultPolicyAssignments.parameters.all.json
-            parTopLevelManagementGroupPrefix="Andor"
+            modules/policy/assignments/alzDefaults/parameters/alzDefaultPolicyAssignments.parameters.all.json
+            parTopLevelManagementGroupPrefix="Mon-Calamaris"
             Top_MG_Resource_Id="${{ inputs.Top_Management_Group_Id }}"
             Platform_MG_Resource_Id="${{ inputs.Platform_MG_Resource_Id }}"
             Connectivity_MG_Resource_Id="${{ inputs.Connectivity_MG_Resource_Id }}"
