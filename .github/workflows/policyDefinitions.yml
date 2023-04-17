@@ -1,4 +1,4 @@
-name: Process Policy Definitions and Assignments
+name: Process Policy Definitions
 
 on:
   workflow_call:
@@ -38,7 +38,7 @@ on:
         type: string
 
 jobs:
-  deploy-policy-definitions-and-assignments:
+  deploy-policy-definitions:
     runs-on: [self-hosted, linux]
 
     env:
