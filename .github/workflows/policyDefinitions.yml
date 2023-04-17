@@ -36,6 +36,9 @@ on:
       Sandbox_MG_Resource_Id:
         required: true
         type: string
+      Top_Management_Group_Id:
+        required: true
+        type: string
 
 jobs:
   deploy-policy-definitions:
