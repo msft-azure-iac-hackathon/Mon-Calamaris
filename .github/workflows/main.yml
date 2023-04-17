@@ -63,5 +63,5 @@ jobs:
       #LogAnalytics_Customer_Id: ${{needs.deploy-logging.outputs.outLogAnalyticsCustomerId}}
       #LogAnalytics_Solutions: ${{needs.deploy-logging.outputs.outLogAnalyticsSolutions}}
       #Automation_Account_Id: ${{needs.deploy-logging.outputs.outAutomationAccount.id}}
-      Automation_Account_Name: ${{needs.deploy-logging.outputs.outAutomationAccount.name}}
+      #Automation_Account_Name: ${{needs.deploy-logging.outputs.outAutomationAccount.name}}
     secrets: inherit
