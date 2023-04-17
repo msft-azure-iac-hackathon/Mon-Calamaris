@@ -45,7 +45,7 @@ jobs:
     secrets: inherit
 
   policy-assignments:
-    uses: ./.github/workflows/10-policy-assignments.yml
+    uses: ./.github/workflows/policyAssignments.yml
     needs: [deploy-management-groups, deploy-policy-definitions, deploy-logging]
     with: 
       Andor_MG_Resource_Id: ${{ needs.deploy-management-groups.outputs.Andor_MG_Resource_Id }}
