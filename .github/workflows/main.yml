@@ -1,1 +1,23 @@
+name: Deploy Management Groups
 
+jobs:
+  deploy-management-groups:
+    runs-on: [self-hosted, linux]
+
+    env:
+      az_powershell_min_version: ${{ inputs.az_powershell_min_version }}
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:         
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          allow-no-subscriptions: true
+          enable-AzPSSession: true
