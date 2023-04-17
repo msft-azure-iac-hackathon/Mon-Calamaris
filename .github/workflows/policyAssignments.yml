@@ -70,7 +70,7 @@ jobs:
           scope: managementgroup
           region: westeurope
           managementgroupid: ${{ inputs.Top_Management_Group_Id }}
-          template: modules/policy/assignment/alzDefaults/alzDefaultPolicyAssignments.bicep
+          template: modules/policy/assignments/alzDefaults/alzDefaultPolicyAssignments.bicep
           parameters: >
             modules/policy/assignment/alzDefault/parameters/alzDefaultPolicyAssignments.parameters.all.json
             parTopLevelManagementGroupPrefix="Andor"
