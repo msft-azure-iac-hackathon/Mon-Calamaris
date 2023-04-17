@@ -70,7 +70,7 @@ jobs:
         with:
           scope: managementgroup
           region: westeurope
-          managementGroupId: ${{ inputs.Mon_Calamaris_MG_Resource_Id }}
+          managementGroupId: ${{ inputs.Top_Management_Group_Id  }}
           template: modules/policy/definitions/customPolicyDefinitions.bicep
           parameters: >
             modules/policy/definitions/parameters/customPolicyDefinitions.parameters.all.json
