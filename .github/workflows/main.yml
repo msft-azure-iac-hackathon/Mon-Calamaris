@@ -31,7 +31,7 @@ jobs:
     secrets: inherit
 
   custom-rbac-role-definitions:
-    uses: ./.github/workflows/3-custom-rbac-role-definitions.yml
+    uses: ./.github/workflows/custom-rbac-role-definitions.yml
     needs: process-management-groups
     with:
       Top_Management_Group_Id: ${{ needs.deploy-management-groups.outputs.Top_Management_Group_Id }}
