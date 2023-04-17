@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.1",
     "parameters": {
         "resourceGroupName": {
-            "value": "rg-we-p-andor-logging-001"
+            "value": "rg-we-p-mon-calamaris-logging-001"
         },
         "resourceGroupLocation": {
             "value": "westeurope"

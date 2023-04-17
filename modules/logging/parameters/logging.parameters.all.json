@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "parLogAnalyticsWorkspaceName": {
-      "value": "andor-log-analytics"
+      "value": "mon-calamaris-log-analytics"
     },
     "parLogAnalyticsWorkspaceLocation": {
       "value": "westeurope"
@@ -30,7 +30,7 @@
       ]
     },
     "parAutomationAccountName": {
-      "value": "andor-automation-account"
+      "value": "mon-calamaris-automation-account"
     },
     "parAutomationAccountLocation": {
       "value": "westeurope"
