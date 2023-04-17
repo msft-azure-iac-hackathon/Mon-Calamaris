@@ -71,4 +71,4 @@ jobs:
           template: modules/policy/definitions/customPolicyDefinitions.bicep
           parameters: >
             modules/policy/definitions/parameters/customPolicyDefinitions.parameters.all.json
-            parTargetManagementGroupId="${{ inputs.Mon_Calamaris_MG_Resource_Id }}"
+            parTargetManagementGroupId="${{ inputs.Top_Management_Group_Id }}"
