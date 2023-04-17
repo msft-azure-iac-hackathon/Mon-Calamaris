@@ -31,7 +31,7 @@ param Corp_MG_Resource_Id string = 'alz-corp'
 param Online_MG_Resource_Id string = 'alz-online'
 
 @sys.description('Decommissioned MG for the ALZ management group hierarchy.')
-param Decommissioned_MG_Resource_Id string = 'alz-decommissioned'
+param Decommisioned_MG_Resource_Id string = 'alz-decommissioned'
 
 @sys.description('Sandbox MG for the ALZ management group hierarchy.')
 param Sandbox_MG_Resource_Id string = 'alz-sandbox'
@@ -258,7 +258,7 @@ var varManagementGroupIds = {
   landingZones: Landing_Zones_MG_Resource_Id
   landingZonesCorp: Corp_MG_Resource_Id
   landingZonesOnline: Online_MG_Resource_Id
-  decommissioned: Decommissioned_MG_Resource_Id
+  decommissioned: Decommisioned_MG_Resource_Id
   sandbox: Sandbox_MG_Resource_Id
 }
 
