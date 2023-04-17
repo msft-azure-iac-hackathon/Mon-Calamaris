@@ -1,6 +1,9 @@
 name: Deploy Management Groups
 
 on:
+  push:
+      branches: [ main ]
+  workflow_dispatch:
   workflow_call:
     inputs:
       az_powershell_min_version:
