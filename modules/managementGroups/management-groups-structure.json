@@ -24,7 +24,13 @@
                     "id": "2f772901-a03f-4e64-94e6-86db8c3f17e2",
                     "type": "managementGroup",
                     "name": "Identity",
-                    "children": []
+                    "children": [
+                        {
+                            "id": "a130bdfe-b3db-4b2c-bc99-01f44d7e657e",
+                            "type": "subscription",
+                            "children": []
+                        }
+                    ]
                 },
                 {
                     "id": "2f772901-a03f-4e64-94e6-86db8c3f17e3",
