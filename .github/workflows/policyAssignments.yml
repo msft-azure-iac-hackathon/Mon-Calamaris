@@ -39,6 +39,10 @@ on:
       Top_Management_Group_Id:
         required: true
         type: string
+      LogAnalytics_Workspace_Id:
+        required: true
+        type: string
+
 
 jobs:
   deploy-policy-assignments:
@@ -85,6 +89,6 @@ jobs:
             Decommisioned_MG_Resource_Id="${{ inputs.Decommisioned_MG_Resource_Id }}"
             Sandbox_MG_Resource_Id="${{ inputs.Sandbox_MG_Resource_Id }}"
             parLogAnalyticsWorkSpaceAndAutomationAccountLocation="westeurope"
-            parLogAnalyticsWorkspaceResourceId="${{inputs.LogAnalytics_Workspace_Id}}"
+            parLogAnalyticsWorkspaceResourceId="${{ inputs.LogAnalytics_Workspace_Id }}"
             parLogAnalyticsWorkspaceLogRetentionInDays="30"
             
