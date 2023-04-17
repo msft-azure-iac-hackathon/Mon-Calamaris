@@ -36,6 +36,9 @@ on:
       Sandbox_MG_Resource_Id:
         required: true
         type: string
+      Top_Management_Group_Id:
+        required: true
+        type: string
 
 jobs:
   deploy-policy-assignments:
@@ -66,12 +69,12 @@ jobs:
         with:
           scope: managementgroup
           region: westeurope
-          managementgroupid: ${{ inputs.Andor_MG_Resource_Id }}
+          managementgroupid: ${{ inputs.Top_Management_Group_Id }}
           template: modules/policy/assignment/alzDefault/alzDefaultPolicyAssignments.bicep
           parameters: >
             modules/policy/assignment/alzDefault/parameters/alzDefaultPolicyAssignments.parameters.all.json
             parTopLevelManagementGroupPrefix="Andor"
-            Top_MG_Resource_Id="${{ inputs.Andor_MG_Resource_Id }}"
+            Top_MG_Resource_Id="${{ inputs.Top_Management_Group_Id }}"
             Platform_MG_Resource_Id="${{ inputs.Platform_MG_Resource_Id }}"
             Connectivity_MG_Resource_Id="${{ inputs.Connectivity_MG_Resource_Id }}"
             Identity_MG_Resource_Id="${{ inputs.Identity_MG_Resource_Id }}"
