@@ -7,9 +7,9 @@ on:
         required: true
         type: string
     outputs:
-      Andor_MG_Resource_Id:
-        description: 'Resource ID of the Andor Management Group'
-        value: ${{ jobs.deploy-management-groups.outputs.Andor_MG_Resource_Id }}
+      Mon-Calamaris_MG_Resource_Id:
+        description: 'Resource ID of the Mon-Calamaris Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Mon-Calamaris_MG_Resource_Id }}
       Platform_MG_Resource_Id:
         description: 'Resource ID of the Platform Management Group'
         value: ${{ jobs.deploy-management-groups.outputs.Platform_MG_Resource_Id }}
@@ -88,7 +88,7 @@ jobs:
           
     outputs:
           Top_MG_Id: ${{ steps.managementGroups.outputs.top_management_group_id }}
-          Andor_MG_Resource_Id: ${{ steps.managementGroups.outputs.Andor_MG_Resource_Id }}
+          Mon-Calamaris_MG_Resource_Id: ${{ steps.managementGroups.outputs.Mon-Calamaris_MG_Resource_Id }}
           Platform_MG_Resource_Id: ${{ steps.managementGroups.outputs.Platform_MG_Resource_Id }}
           Connectivity_MG_Resource_Id: ${{ steps.managementGroups.outputs.Connectivity_MG_Resource_Id }}
           Identity_MG_Resource_Id: ${{ steps.managementGroups.outputs.Identity_MG_Resource_Id }}
