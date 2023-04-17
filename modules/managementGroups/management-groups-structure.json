@@ -1,0 +1,68 @@
+{
+    "id": "c4c8d311-5a86-4eda-8cbb-27096e95d4ab",
+    "type": "managementGroup",
+    "name": "Mon-Calamaris",
+    "children": [
+        {
+            "id": "2f772901-a03f-4e64-94e6-86db8c3f17e0",
+            "type": "managementGroup",
+            "name": "Platform",
+            "children": [
+                {
+                    "id": "2f772901-a03f-4e64-94e6-86db8c3f17e1",
+                    "type": "managementGroup",
+                    "name": "Connectivity",
+                    "children": [
+
+                    ]
+                },
+                {
+                    "id": "2f772901-a03f-4e64-94e6-86db8c3f17e2",
+                    "type": "managementGroup",
+                    "name": "Identity",
+                    "children": [
+                        
+                    ]
+                },
+                {
+                    "id": "2f772901-a03f-4e64-94e6-86db8c3f17e3",
+                    "type": "managementGroup",
+                    "name": "Management",
+                    "children": [
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "2f772901-a03f-4e64-94e6-86db8c3f17e4",
+            "type": "managementGroup",
+            "name": "Landing Zones",
+            "children": [
+                {
+                    "id": "2f772901-a03f-4e64-94e6-86db8c3f17e5",
+                    "type": "managementGroup",
+                    "name": "Corp",
+                    "children": []
+                },
+                {
+                    "id": "2f772901-a03f-4e64-94e6-86db8c3f17e6",
+                    "type": "managementGroup",
+                    "name": "Online",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "2f772901-a03f-4e64-94e6-86db8c3f17e7",
+            "type": "managementGroup",
+            "name": "Decommisioned",
+            "children": []
+        },
+        {
+            "id": "2f772901-a03f-4e64-94e6-86db8c3f17e8",
+            "type": "managementGroup",
+            "name": "Sandbox",
+            "children": []
+        }
+    ]
+}
