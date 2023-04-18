@@ -54,7 +54,7 @@
       "value": "/subscriptions/a130bdfe-b3db-4b2c-bc99-01f44d7e657e/resourceGroups/rg-we-p-mon-calamaris-hubNetworking-001/providers/Microsoft.Network/ddosProtectionPlans/alz-ddos-plan"
     },
     "parPrivateDnsResourceGroupId": {
-      "value": "rg-we-p-mon-calamaris-hubNetworking-001"
+      "value": "/subscriptions/a130bdfe-b3db-4b2c-bc99-01f44d7e657e/resourceGroups/rg-we-p-mon-calamaris-logging-001"
     },
     "parTelemetryOptOut": {
       "value": false
