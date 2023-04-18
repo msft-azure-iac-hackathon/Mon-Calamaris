@@ -91,4 +91,5 @@ jobs:
             parLogAnalyticsWorkSpaceAndAutomationAccountLocation="westeurope"
             parLogAnalyticsWorkspaceResourceId="${{ inputs.LogAnalytics_Workspace_Id }}"
             parLogAnalyticsWorkspaceLogRetentionInDays="30"
+          failOnStdErr: false
             

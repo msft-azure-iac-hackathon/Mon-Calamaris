@@ -35,6 +35,7 @@ jobs:
           subscriptionId: ${{ inputs.Subscription_Id }}
           template: ARMtemplates/resourceGroup.json
           parameters: modules/hubNetworking/parameters/resourceGroup.parameters.json
+          failOnStdErr: false
 
       - uses: azure/arm-deploy@v1 
         name: Deploy Hub Networking
@@ -45,3 +46,4 @@ jobs:
           resourceGroupName: ${{ steps.resourceGroupHubNetworking.outputs.resourceGroupName }}
           template: modules/hubNetworking/hubNetworking.bicep
           parameters: modules/hubNetworking/parameters/hubNetworking.parameters.all.json
+          failOnStdErr: false
