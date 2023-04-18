@@ -27,7 +27,7 @@ jobs:
           enable-AzPSSession: true
 
       - uses: azure/arm-deploy@v1
-        name: Create the Resource Group for logging
+        name: Create the Resource Group for Hub Networking
         id: resourceGroupHubNetworking
         with:
           scope: subscription
@@ -37,7 +37,7 @@ jobs:
           parameters: modules/hubNetworking/parameters/resourceGroup.parameters.json
 
       - uses: azure/arm-deploy@v1 
-        name: Deploy logging
+        name: Deploy Hub Networking
         id: deployHubNetworking
         with:
           scope: resourcegroup
