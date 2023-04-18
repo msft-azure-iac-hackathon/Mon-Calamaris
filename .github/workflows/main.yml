@@ -44,6 +44,13 @@ jobs:
       Subscription_Id: 'a130bdfe-b3db-4b2c-bc99-01f44d7e657e'
     secrets: inherit
 
+  deploy-hubNetworking:
+    uses: ./.github/workflows/hubNetworking.yml
+    needs: [deploy-management-groups]
+    with:
+      Subscription_Id: 'a130bdfe-b3db-4b2c-bc99-01f44d7e657e'
+    secrets: inherit
+
   policy-assignments:
     uses: ./.github/workflows/policyAssignments.yml
     needs: [deploy-management-groups, deploy-policy-definitions, deploy-logging]
