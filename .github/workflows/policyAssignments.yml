@@ -73,7 +73,7 @@ jobs:
         with:
           scope: managementgroup
           region: westeurope
-          managementgroupid: ${{ inputs.Top_Management_Group_Id }}
+          managementgroupid: ${{ inputs.Mon_Calamaris_MG_Resource_Id}}
           template: modules/policy/assignments/alzDefaults/alzDefaultPolicyAssignments.bicep
           parameters: >
             modules/policy/assignments/alzDefaults/parameters/alzDefaultPolicyAssignments.parameters.all.json
