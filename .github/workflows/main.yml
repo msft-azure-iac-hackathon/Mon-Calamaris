@@ -70,3 +70,9 @@ jobs:
   deploy-diagnostic:
     uses: ./.github/workflows/diagnostics-settings.yml
     needs: [deploy-logging, deploy-management-groups]
+    with:
+      Subscription_Id: '947bf62f-bccd-41e4-91f6-d82b44f2ca9a'
+      TopLevelManagementGroupPrefix: 'mon-calamaris'
+      Top_Management_Group_Id: ${{ needs.deploy-management-groups.outputs.Top_Management_Group_Id }}
+      LogAnalyticsWorkspaceResourceId: ${{ needs.deploy-logging.outputs.LogAnalyticsWorkspaceId }}
+    secrets: inherit
