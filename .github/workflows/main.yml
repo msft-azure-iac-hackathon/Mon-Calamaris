@@ -66,3 +66,7 @@ jobs:
       #Automation_Account_Id: ${{needs.deploy-logging.outputs.outAutomationAccount.id}}
       #Automation_Account_Name: ${{needs.deploy-logging.outputs.outAutomationAccount.name}}
     secrets: inherit
+
+  deploy-diagnostic:
+    uses: ./.github/workflows/diagnostics-settings.yml
+    needs: [deploy-logging, deploy-management-groups]
