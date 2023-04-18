@@ -44,4 +44,4 @@ jobs:
           region: westeurope
           resourceGroupName: ${{ steps.resourceGroupHubNetworking.outputs.resourceGroupName }}
           template: modules/hubNetworking/hubNetworking.bicep
-          parameters: modules/hubNetworking/parameters/hubNetworkingccccccnctkcbcjh.parameters.all.json
+          parameters: modules/hubNetworking/parameters/hubNetworking.parameters.all.json
