@@ -60,7 +60,7 @@ jobs:
       Decommisioned_MG_Resource_Id: ${{ needs.deploy-management-groups.outputs.Decommisioned_MG_Resource_Id }}
       Sandbox_MG_Resource_Id: ${{ needs.deploy-management-groups.outputs.Sandbox_MG_Resource_Id }}
       Top_Management_Group_Id: ${{ needs.deploy-management-groups.outputs.Top_Management_Group_Id }}
-      LogAnalytics_Workspace_Id: ${{needs.deploy-logging.outputs.outLogAnalyticsWorkspaceId}}
+      LogAnalytics_Workspace_Id: ${{needs.deploy-logging.outputs.LogAnalyticsWorkspaceId}}
       #LogAnalytics_Customer_Id: ${{needs.deploy-logging.outputs.outLogAnalyticsCustomerId}}
       #LogAnalytics_Solutions: ${{needs.deploy-logging.outputs.outLogAnalyticsSolutions}}
       #Automation_Account_Id: ${{needs.deploy-logging.outputs.outAutomationAccount.id}}
