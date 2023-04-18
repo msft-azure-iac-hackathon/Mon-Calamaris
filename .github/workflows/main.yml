@@ -2,6 +2,11 @@ name: LZ Main Module
 on:
   push:
       branches: [ main ]
+      paths:
+        - 'ARMtempaltes/**'
+        - 'CRML/**'
+        - '/modules/**'
+        - 'orchestration/**'
   workflow_dispatch:
 
 
