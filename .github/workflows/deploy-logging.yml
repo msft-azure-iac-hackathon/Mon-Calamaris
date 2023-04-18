@@ -6,6 +6,10 @@ on:
       Subscription_Id:
         required: true
         type: string
+    outputs:
+      LogAnalyticsWorkspaceId:
+        description: 'Resource ID of the Log Analytics Workspace'
+        value: ${{ jobs.deploy-central-logging.outputs.LogAnalyticsWorkspaceId }}
 
 jobs:
   deploy-central-logging:
