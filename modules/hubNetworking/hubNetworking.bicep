@@ -616,9 +616,9 @@ resource resAzureFirewall 'Microsoft.Network/azureFirewalls@2021-08-01' = if (pa
       name: 'AZFW_VNet'
       tier: parAzFirewallTier
     }
-    firewallPolicy: {
-      id: resFirewallPolicies.id
-    }
+    // firewallPolicy: {
+    //   id: resFirewallPolicies.id
+    // }
   }
 }
 
