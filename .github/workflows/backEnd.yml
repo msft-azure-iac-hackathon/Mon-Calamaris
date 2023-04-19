@@ -64,4 +64,5 @@ jobs:
           region: westeurope
           resourceGroupName: 'backEnd-App'
           template: Bicep/Components/keyVault.bicep
+          parameters: Backend/keyVault.param.json
           failOnStdErr: false

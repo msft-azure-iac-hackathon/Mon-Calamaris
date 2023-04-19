@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "namePrefix":{
+            "value": "backEnd"
+        },
+        "keyVaultAccessPolicies": {
+            "value": []
+        },
+        "keyVaultNetworkAcls": {
+            "value": {
+                "defaultAction": "Deny",
+                "bypass": "AzureServices",
+                "virtualNetworkRules": [],
+                "ipRules": []
+            }
+        },
+        "deployPrivateEndpoints":{
+            "value": true
+        },
+        "privateDnsZoneId": {
+            "value": ""
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/e89c90e4-9342-4dae-87a6-8bac02578b58/resourceGroups/backEnd-App/providers/Microsoft.Network/virtualNetworks/backEnd-vnt"
+        },
+        "subnetName": {
+            "value": "dataSubnet"
+        }
+    }
+}

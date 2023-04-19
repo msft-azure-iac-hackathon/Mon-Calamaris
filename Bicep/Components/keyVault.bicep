@@ -1,6 +1,8 @@
 // Parameters
-param keyVaultName string
 param keyVaultId string = ''
+param namePrefix string
+
+var keyVaultName = '${namePrefix}-kvt'
 
 @description('SKU for the vault')
 @allowed([
@@ -10,10 +12,10 @@ param keyVaultId string = ''
 param keyVaultSku string = 'standard'
 
 @description('Access Policies defining the scope and level of access for different principals')
-param keyVaultAccessPolicies array
+param keyVaultAccessPolicies array = []
 
 @description('Network Access Control rules for the Key Vault')
-param keyVaultNetworkAcls object
+param keyVaultNetworkAcls object= []
 
 @description('Enable the soft delete for the Key Vault')
 param keyVaultPurgeSoftDelete bool = true
