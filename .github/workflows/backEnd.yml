@@ -53,5 +53,5 @@ jobs:
           region: westeurope
           resourceGroupName: 'backEnd'
           template: Bicep/network.bicep
-          parameters: Backend/network.param.json
+          parameters: Backendnetwork.param.json
           failOnStdErr: false
