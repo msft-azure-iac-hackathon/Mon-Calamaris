@@ -15,7 +15,7 @@ param keyVaultSku string = 'standard'
 param keyVaultAccessPolicies array = []
 
 @description('Network Access Control rules for the Key Vault')
-param keyVaultNetworkAcls object= []
+param keyVaultNetworkAcls object= {}
 
 @description('Enable the soft delete for the Key Vault')
 param keyVaultPurgeSoftDelete bool = true
