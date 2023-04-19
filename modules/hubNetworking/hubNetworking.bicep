@@ -577,19 +577,19 @@ module modAzureFirewallPublicIp '../publicIp/publicIp.bicep' = if (parAzFirewall
   }
 }
 
-resource resFirewallPolicies 'Microsoft.Network/firewallPolicies@2021-08-01' = if (parAzFirewallEnabled) {
-  name: parAzFirewallPoliciesName
-  location: parLocation
-  tags: parTags
-  properties: {
-    dnsSettings: {
-      enableProxy: parAzFirewallDnsProxyEnabled
-    }
-    sku: {
-      tier: parAzFirewallTier
-    }
-  }
-}
+// resource resFirewallPolicies 'Microsoft.Network/firewallPolicies@2021-08-01' = if (parAzFirewallEnabled) {
+//   name: parAzFirewallPoliciesName
+//   location: parLocation
+//   tags: parTags
+//   properties: {
+//     dnsSettings: {
+//       enableProxy: parAzFirewallDnsProxyEnabled
+//     }
+//     sku: {
+//       tier: parAzFirewallTier
+//     }
+//   }
+// }
 
 // AzureFirewallSubnet is required to deploy Azure Firewall . This subnet must exist in the parsubnets array if you deploy.
 // There is a minimum subnet requirement of /26 prefix.
