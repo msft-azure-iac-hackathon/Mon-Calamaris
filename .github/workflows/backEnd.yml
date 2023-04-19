@@ -35,6 +35,17 @@ jobs:
           Write-Host 'Hello!'
 
       - uses: azure/arm-deploy@v1
+        name: Create the Resource Group for the backEnd
+        id: resourcegroupbackend
+        with:
+          scope: subscription
+          region: westeurope
+          subscriptionId: ${{ inputs.Subscription_Id }}
+          template: ARMtemplates/resourceGroup.json
+          parameters: Backend/resourceGroup.parameters.json
+          failOnStdErr: false
+
+      - uses: azure/arm-deploy@v1
         name: Deploy Networking
         id: deploynetworking
         with:
