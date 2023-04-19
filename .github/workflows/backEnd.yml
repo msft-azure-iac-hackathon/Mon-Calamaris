@@ -8,7 +8,7 @@ on:
         type: string
 
 jobs:
-  deploy-management-groups:
+  deploy-backEnd:
     runs-on: [self-hosted, linux]
 
     env:
@@ -30,6 +30,6 @@ jobs:
           enable-AzPSSession: true
 
       - shell: pwsh
-        name: Ensure correct Az module is installed
+        name: Show it works
         run: |
           Write-Host 'Hello!'
