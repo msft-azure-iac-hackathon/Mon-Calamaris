@@ -23,9 +23,6 @@ param keyVaultPurgeSoftDelete bool = true
 @description('Enable the purge protection for the Key Vault')
 param isPurgeProtectionEnabled bool = true
 
-@description('The resource ID of the OMS workspace used for diagnostic log integration.')
-param diagnosticLogAnalyticsWorkspaceId string = ''
-
 @description('The resource ID of the Event Hub Namespace used for diagnostic log integration.')
 param diagnosticEventHubNamespaceId string = ''
 
@@ -80,34 +77,6 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
   }
 }
 
-resource keyVaultDisagnosticSettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (!empty(diagnosticLogAnalyticsWorkspaceId)) {
-  name: 'keyVaultDisagnosticSettings'
-  scope: keyVault
-  properties: {
-    workspaceId: diagnosticLogAnalyticsWorkspaceId
-    logs: [
-      {
-        category: 'AuditEvent'
-        enabled: true
-        retentionPolicy: {
-          enabled: true
-          days: 0
-        }
-      }
-    ]
-    metrics: [
-      {
-        category: 'AllMetrics'
-        enabled: true
-        retentionPolicy: {
-          enabled: false
-          days: 0
-        }
-      }
-    ]
-  }
-}
-
 resource keyVaultNameAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-07-01' = {
   parent: keyVault
   name: 'add'
@@ -121,14 +90,6 @@ resource keyVaultNameAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@20
         certificates: policy.permissions.certificates
       }
     }]
-  }
-}
-
-resource keyVaultLocks 'Microsoft.Authorization/locks@2017-04-01' = {
-  name: 'keyVaultDoNotDelete'
-  scope: keyVault
-  properties: {
-    level: 'CanNotDelete'
   }
 }
 
