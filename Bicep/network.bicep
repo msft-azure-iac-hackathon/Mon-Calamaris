@@ -31,7 +31,7 @@ module virtualNetwok 'Components/virtualNetwork.bicep' = {
     vnetEnableDdosProtection: vnetEnableDdosProtection
     vnetDnsServers: vnetDnsServers
     vnetAddressPrefixes: vnetAddressPrefixes
-    vnetSubnets: vnetSubnets    
+    vnetSubnets: vnetSubnets
   }
 }
 
