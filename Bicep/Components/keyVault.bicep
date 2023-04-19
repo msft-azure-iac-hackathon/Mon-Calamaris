@@ -108,34 +108,6 @@ resource keyVaultDisagnosticSettings 'Microsoft.Insights/diagnosticSettings@2021
   }
 }
 
-resource keyVaultEventHub 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (!empty(diagnosticEventHubNamespaceId)) {
-  name: 'keyVaultEventHub'
-  scope: keyVault
-  properties: {
-    eventHubAuthorizationRuleId: eventHubAuthorizationRuleId
-    logs: [
-      {
-        category: 'AuditEvent'
-        enabled: true
-        retentionPolicy: {
-          enabled: true
-          days: 0
-        }
-      }
-    ]
-    metrics: [
-      {
-        category: 'AllMetrics'
-        enabled: true
-        retentionPolicy: {
-          enabled: false
-          days: 0
-        }
-      }
-    ]
-  }
-}
-
 resource keyVaultNameAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-07-01' = {
   parent: keyVault
   name: 'add'
