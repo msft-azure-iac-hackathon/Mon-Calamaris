@@ -77,34 +77,34 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
   }
 }
 
-resource keyVaultNameAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-07-01' = {
-  parent: keyVault
-  name: 'add'
-  properties: {
-    accessPolicies: [for policy in keyVaultAccessPolicies: {
-      tenantId: policy.tenantId
-      objectId: policy.objectId
-      permissions: {
-        keys: policy.permissions.keys
-        secrets: policy.permissions.secrets
-        certificates: policy.permissions.certificates
-      }
-    }]
-  }
-}
+// resource keyVaultNameAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-07-01' = {
+//   parent: keyVault
+//   name: 'add'
+//   properties: {
+//     accessPolicies: [for policy in keyVaultAccessPolicies: {
+//       tenantId: policy.tenantId
+//       objectId: policy.objectId
+//       permissions: {
+//         keys: policy.permissions.keys
+//         secrets: policy.permissions.secrets
+//         certificates: policy.permissions.certificates
+//       }
+//     }]
+//   }
+// }
 
-module keyVaultPrivateEndpoint 'keyVaultPrivateEndpoint.bicep' = if (deployPrivateEndpoints && (!empty(subnetName))) {
-  name: '${kvName}-privateEndpoint'
-  scope: resourceGroup(virtualNetworkResourceGroup)
-  params: {
-    arrayOfNames: arrayOfNames
-    keyVaultId: keyVault.id
-    location: location
-    privateEndpointName: privateEndpointName 
-    subnetId: subnetId
-    virtualNetworkId: virtualNetworkId
-  }
-}
+// module keyVaultPrivateEndpoint 'keyVaultPrivateEndpoint.bicep' = if (deployPrivateEndpoints && (!empty(subnetName))) {
+//   name: '${kvName}-privateEndpoint'
+//   scope: resourceGroup(virtualNetworkResourceGroup)
+//   params: {
+//     arrayOfNames: arrayOfNames
+//     keyVaultId: keyVault.id
+//     location: location
+//     privateEndpointName: privateEndpointName 
+//     subnetId: subnetId
+//     virtualNetworkId: virtualNetworkId
+//   }
+// }
 
 output keyVaultName string = kvName
 output privateEndpointName string = privateEndpointName
