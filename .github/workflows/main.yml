@@ -89,11 +89,11 @@ jobs:
   #     LogAnalyticsWorkspaceResourceId: ${{ needs.deploy-logging.outputs.LogAnalyticsWorkspaceId }}
   #   secrets: inherit
 
-  deploy-hub-peered-spoke:
-    uses: ./.github/workflows/spokeNetworking.yml
-    needs: [deploy-hubNetworking, deploy-management-groups]
-    with:
-      Subscription_Id: 'e89c90e4-9342-4dae-87a6-8bac02578b58'
-      ManagementGroupId: ${{ needs.deploy-management-groups.outputs.Top_Management_Group_Id }}
-      VirtualNetworkId: ${{ needs.deploy-hubNetworking.outputs.VirtualHubId }}
-    secrets: inherit
+  # deploy-hub-peered-spoke:
+  #   uses: ./.github/workflows/spokeNetworking.yml
+  #   needs: [deploy-hubNetworking, deploy-management-groups]
+  #   with:
+  #     Subscription_Id: 'e89c90e4-9342-4dae-87a6-8bac02578b58'
+  #     ManagementGroupId: ${{ needs.deploy-management-groups.outputs.Top_Management_Group_Id }}
+  #     VirtualNetworkId: ${{ needs.deploy-hubNetworking.outputs.VirtualHubId }}
+  #   secrets: inherit
