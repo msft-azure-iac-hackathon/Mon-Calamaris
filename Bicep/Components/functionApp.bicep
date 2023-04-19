@@ -59,7 +59,4 @@ resource appSerivcePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
 
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: '${namePrefix}-storageAccount'
-  location: location
-}
+
