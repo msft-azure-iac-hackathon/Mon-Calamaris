@@ -63,5 +63,5 @@ jobs:
           scope: resourcegroup
           region: westeurope
           resourceGroupName: 'backEnd-App'
-          template: Bicep/components/keyVault.bicep
+          template: Bicep/Components/keyVault.bicep
           failOnStdErr: false
