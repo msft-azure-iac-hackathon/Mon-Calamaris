@@ -53,7 +53,7 @@ jobs:
     uses: ./.github/workflows/hubNetworking.yml
     needs: [deploy-management-groups]
     with:
-      Subscription_Id: 'e89c90e4-9342-4dae-87a6-8bac02578b58'
+      Subscription_Id: 'a130bdfe-b3db-4b2c-bc99-01f44d7e657e'
     secrets: inherit
 
   # policy-assignments:
@@ -93,7 +93,7 @@ jobs:
     uses: ./.github/workflows/spokeNetworking.yml
     needs: [deploy-hubNetworking, deploy-management-groups]
     with:
-      Subscription_Id: 'a130bdfe-b3db-4b2c-bc99-01f44d7e657e'
+      Subscription_Id: 'e89c90e4-9342-4dae-87a6-8bac02578b58'
       ManagementGroupId: ${{ needs.deploy-management-groups.outputs.Top_Management_Group_Id }}
       VirtualNetworkId: ${{ needs.deploy-hubNetworking.outputs.VirtualHubId }}
     secrets: inherit
