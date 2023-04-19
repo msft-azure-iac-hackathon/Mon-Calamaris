@@ -254,19 +254,19 @@ resource resErGateway 'Microsoft.Network/expressRouteGateways@2021-05-01' = [for
   }
 }]
 
-resource resFirewallPolicies 'Microsoft.Network/firewallPolicies@2022-05-01' = if (parVirtualHubEnabled && parVirtualWanHubs[0].parAzFirewallEnabled) {
-  name: parAzFirewallPoliciesName
-  location: parLocation
-  tags: parTags
-  properties: {
-    dnsSettings: {
-      enableProxy: parAzFirewallDnsProxyEnabled
-    }
-    sku: {
-      tier: parAzFirewallTier
-    }
-  }
-}
+// resource resFirewallPolicies 'Microsoft.Network/firewallPolicies@2022-05-01' = if (parVirtualHubEnabled && parVirtualWanHubs[0].parAzFirewallEnabled) {
+//   name: parAzFirewallPoliciesName
+//   location: parLocation
+//   tags: parTags
+//   properties: {
+//     dnsSettings: {
+//       enableProxy: parAzFirewallDnsProxyEnabled
+//     }
+//     sku: {
+//       tier: parAzFirewallTier
+//     }
+//   }
+// }
 
 resource resAzureFirewall 'Microsoft.Network/azureFirewalls@2022-05-01' = [for (hub, i) in parVirtualWanHubs: if ((parVirtualHubEnabled) && (hub.parAzFirewallEnabled)) {
   name: '${parAzFirewallName}-${hub.parHubLocation}'
