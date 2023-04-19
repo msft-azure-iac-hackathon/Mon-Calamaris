@@ -1,4 +1,4 @@
-@description('Location for all Resources.') 
+@description('Location for all Resources.')
 param location string = resourceGroup().location
 
 @description('Name prefix to generate names of resources.')
@@ -39,11 +39,11 @@ module networkSecurityGroups 'Components/networkSecurityGroup.bicep' = [for vnet
   name: '${namePrefix}-nsg-${vnetSubnet.name}'
   dependsOn: applicationSecurityGroups
   params: {
-   location: location
-   nsgName: '${namePrefix}-nsg-${vnetSubnet.name}'
-   nsgRules: vnetSubnet.networkSecurityGroup.rules
+    location: location
+    nsgName: '${namePrefix}-nsg-${vnetSubnet.name}'
+    nsgRules: vnetSubnet.networkSecurityGroup.rules
   }
- }]
+}]
 
 module applicationSecurityGroups 'Components/applicationSecurityGroup.bicep' = [for vnetSubnet in vnetSubnets: {
   name: '${namePrefix}-asg-${vnetSubnet.name}'
@@ -53,16 +53,16 @@ module applicationSecurityGroups 'Components/applicationSecurityGroup.bicep' = [
   }
 }]
 
-module routeTables 'Components/routeTable.bicep' = [for vnetSubnet in vnetSubnets: if (!empty(vnetSubnet.routeTable)){
- name: '${namePrefix}-udr-${vnetSubnet.name}'
- params: {
-  location: location
-  udrName: '${namePrefix}-udr-${vnetSubnet.name}'
-  udrRoutes: vnetSubnet.routeTable.routes
- }
+module routeTables 'Components/routeTable.bicep' = [for vnetSubnet in vnetSubnets: if (!empty(vnetSubnet.routeTable)) {
+  name: '${namePrefix}-udr-${vnetSubnet.name}'
+  params: {
+    location: location
+    udrName: '${namePrefix}-udr-${vnetSubnet.name}'
+    udrRoutes: vnetSubnet.routeTable.routes
+  }
 }]
 
-module privateDnsZones 'Components/privateDnsZone.bicep' = [ for privateDnsZone in vnetPrivateDnsZones: {
+module privateDnsZones 'Components/privateDnsZone.bicep' = [for privateDnsZone in vnetPrivateDnsZones: {
   name: privateDnsZone.name
   dependsOn: [
     virtualNetwok
@@ -70,5 +70,7 @@ module privateDnsZones 'Components/privateDnsZone.bicep' = [ for privateDnsZone 
   params: {
     location: 'global'
     pdnszName: privateDnsZone.name
+    pdnszVirtualNetworkLinks: []
+    pdnszARecords: []
   }
 }]
