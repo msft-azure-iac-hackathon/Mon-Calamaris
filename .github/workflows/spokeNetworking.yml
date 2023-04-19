@@ -1,0 +1,58 @@
+name: Deploy Hub peered spoke
+
+on:
+  workflow_call:
+    inputs:
+      Subscription_Id:
+        required: true
+        type: string
+      ManagementGroupId:
+        required: true
+        type: string
+      VirtualNetworkId:
+        required: true
+        type: string
+
+jobs:
+  deploy-hub-peered-spoke:
+    runs-on: [self-hosted, linux]
+    name: Deploy Hub peered spoke
+    
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:         
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          subscription-id: ${{ inputs.Subscription_Id }}
+          enable-AzPSSession: true
+
+      - uses: azure/arm-deploy@v1 
+        name: Deploy VWAN rRG
+        id: DeployVwanRg
+        with:
+            scope: subscription
+            region: westeurope
+            subscriptionId: ${{ inputs.Subscription_Id }}
+            template: modules/resourceGroup/resourceGroup.bicep
+            parameters: modules/vwanConnectivity/parameters/resourceGroup.parameters.all.json
+
+      - uses: azure/arm-deploy@v1 
+        name: Deploy Hub peered spoke
+        id: DeployHubPeeredSpoke
+        with:
+          scope: managementGroup
+          region: westeurope
+          managementGroupId: ${{ inputs.ManagementGroupId }}
+          template: orchestration/hubPeeredSpoke/hubPeeredSpoke.bicep
+          parameters: >
+            orchestration/hubPeeredSpoke/parameters/hubPeeredSpoke.parameters.all.json
+            parTopLevelManagementGroupPrefix='wks'
+            parPeeredVnetSubscriptionId=${{ inputs.Subscription_Id }}
+            parHubVirtualNetworkId= ${{ inputs.VirtualNetworkId }}
