@@ -3,7 +3,7 @@ name: backEnd
 on:
   workflow_call:
     inputs:
-      az_powershell_min_version:
+      Subscription_Id:
         required: true
         type: string
 
@@ -26,10 +26,21 @@ jobs:
         with:
           tenant-id: ${{ secrets.TENANT_ID }}
           client-id: ${{ secrets.CLIENT_ID }}
-          allow-no-subscriptions: true
+          subscription-id: ${{ inputs.Subscription_Id }}
           enable-AzPSSession: true
 
       - shell: pwsh
         name: Show it works
         run: |
           Write-Host 'Hello!'
+
+      - uses: azure/arm-deploy@v1
+        name: Deploy Networking
+        id: deploynetworking
+        with:
+          scope: resourcegroup
+          region: westeurope
+          resourceGroupName: 'backEnd'
+          template: Bicep\network.bicep
+          parameters: Backend\network.param.json
+          failOnStdErr: false
