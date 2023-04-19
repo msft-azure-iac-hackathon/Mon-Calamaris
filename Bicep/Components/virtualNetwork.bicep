@@ -20,7 +20,8 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-07-01' =  {
     }
     enableDdosProtection: vnetEnableDdosProtection
   }
-  
+
+  @batchSize(1)
   resource subnet 'subnets@2022-07-01' = [ for vnetSubnet in vnetSubnets : {
     name: vnetSubnet.name
     properties: {
