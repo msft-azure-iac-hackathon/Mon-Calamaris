@@ -1,4 +1,4 @@
-name: LZ Main Module
+name: Power
 on:
   push:
       branches: [ main ]
