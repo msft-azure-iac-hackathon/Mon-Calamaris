@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy-backEnd:
-    uses: ./.github/workflows/backEnd.yml
+    uses: ./.github/workflows/managementGroups.yml
     with:
       az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }}
     secrets: inherit
