@@ -70,7 +70,5 @@ module privateDnsZones 'Components/privateDnsZone.bicep' = [ for privateDnsZone 
   params: {
     location: 'global'
     pdnszName: privateDnsZone.name
-    pdnszVirtualNetworkLinks: privateDnsZone.pdnszVirtualNetworkLinks
-    pdnszARecords: privateDnsZone.pdnszARecords
   }
 }]
