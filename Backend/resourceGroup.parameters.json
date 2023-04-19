@@ -3,7 +3,8 @@
     "contentVersion": "1.0.0.1",
     "parameters": {
         "resourceGroupName": {
-            "value": "backEnd",
+            "value": "backEnd"
+        },
         "resourceGroupLocation": {
             "value": "westeurope"
         }
