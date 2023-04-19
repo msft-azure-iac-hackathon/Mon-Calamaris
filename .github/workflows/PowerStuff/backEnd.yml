@@ -1,0 +1,69 @@
+name: Management Groups
+
+on:
+  workflow_call:
+    inputs:
+      az_powershell_min_version:
+        required: true
+        type: string
+    outputs:
+      Mon_Calamaris_MG_Resource_Id:
+        description: 'Resource ID of the Mon_Calamaris Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Mon_Calamaris_MG_Resource_Id }}
+      Platform_MG_Resource_Id:
+        description: 'Resource ID of the Platform Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Platform_MG_Resource_Id }}
+      Connectivity_MG_Resource_Id:
+        description: 'Resource ID of the Connectivity Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Connectivity_MG_Resource_Id }}
+      Identity_MG_Resource_Id:
+        description: 'Resource ID of the Identity Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Identity_MG_Resource_Id }}
+      Management_MG_Resource_Id:
+        description: 'Resource ID of the Management Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Management_MG_Resource_Id }}
+      Landing_Zones_MG_Resource_Id:
+        description: 'Resource ID of the Landing Zones Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Landing_Zones_MG_Resource_Id }}
+      Corp_MG_Resource_Id:
+        description: 'Resource ID of the Corp Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Corp_MG_Resource_Id }}
+      Online_MG_Resource_Id:
+        description: 'Resource ID of the Online Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Online_MG_Resource_Id }}
+      Decommisioned_MG_Resource_Id:
+        description: 'Resource ID of the Decommisioned Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Decommisioned_MG_Resource_Id }}
+      Sandbox_MG_Resource_Id:
+        description: 'Resource ID of the Sandbox Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Sandbox_MG_Resource_Id }}
+      Top_Management_Group_Id:
+        description: 'ID of the Highest Management Group'
+        value: ${{ jobs.deploy-management-groups.outputs.Top_MG_Id }}
+
+jobs:
+  deploy-management-groups:
+    runs-on: [self-hosted, linux]
+
+    env:
+      az_powershell_min_version: ${{ inputs.az_powershell_min_version }}
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          allow-no-subscriptions: true
+          enable-AzPSSession: true
+
+      - shell: pwsh
+        name: Ensure correct Az module is installed
+        run: |
+          Write-Host 'Hello!'

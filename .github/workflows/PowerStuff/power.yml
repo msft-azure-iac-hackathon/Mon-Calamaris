@@ -1,0 +1,19 @@
+name: LZ Main Module
+on:
+  push:
+      branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy-backEnd:
+    uses: ./.github/workflows/PowerStuff/BackEnd.yml
+    with:
+      az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }}
+    secrets: inherit
+
+    # deploy-frontEnd:
+    #   uses: ./.github/workflows/PowerStuff/frontEnd.yml
+    #   needs: deploy-backEnd
+    #   with:
+    #     az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }}
+    #   secrets: inherit
