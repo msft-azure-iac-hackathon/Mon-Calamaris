@@ -6,7 +6,6 @@ on:
       az_powershell_min_version:
         required: true
         type: string
-    outputs:
 
 jobs:
   deploy-management-groups:
