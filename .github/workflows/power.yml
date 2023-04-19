@@ -4,16 +4,18 @@ on:
       branches: [ main ]
   workflow_dispatch:
 
+
+    
 jobs:
   deploy-backEnd:
     uses: ./.github/workflows/backEnd.yml
     with:
-      az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }}
+      Subscription_Id: 'e89c90e4-9342-4dae-87a6-8bac02578b58'
     secrets: inherit
 
-    # deploy-frontEnd:
+    # deploy-backEnd:
     #   uses: ./.github/workflows/frontEnd.yml
-    #   needs: deploy-backEnd
     #   with:
-    #     az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }}
+    #     Subscription_Id: 'e89c90e4-9342-4dae-87a6-8bac02578b58'
     #   secrets: inherit
+
