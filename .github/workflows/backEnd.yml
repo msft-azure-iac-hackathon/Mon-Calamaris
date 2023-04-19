@@ -52,6 +52,6 @@ jobs:
           scope: resourcegroup
           region: westeurope
           resourceGroupName: 'backEnd'
-          template: Bicep\network.bicep
-          parameters: Backend\network.param.json
+          template: Bicep/network.bicep
+          parameters: Backend/network.param.json
           failOnStdErr: false
